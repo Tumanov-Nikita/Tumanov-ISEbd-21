@@ -25,3 +25,7 @@ C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.csprojResolveAssem
 C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.Form1.resources
 C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.Properties.Resources.resources
 C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\ThirdLab\SecondLab\bin\Debug\SecondLab.exe.config
+C:\Users\user\Desktop\ThirdLab\SecondLab\obj\Debug\SecondLab.exe
+C:\Users\user\Desktop\ThirdLab\SecondLab\obj\Debug\SecondLab.pdb
+C:\Users\user\Desktop\ThirdLab\SecondLab\bin\Debug\ThirdLab.exe.config
