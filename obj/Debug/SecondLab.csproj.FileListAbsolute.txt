@@ -1,0 +1,27 @@
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\bin\Debug\SecondLab.exe.config
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\obj\Debug\SecondLab.csprojResolveAssemblyReference.cache
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\obj\Debug\SecondLab.Form1.resources
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\obj\Debug\SecondLab.Properties.Resources.resources
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\obj\Debug\SecondLab.csproj.GenerateResource.Cache
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\bin\Debug\SecondLab.exe
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\bin\Debug\SecondLab.pdb
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\obj\Debug\SecondLab.exe
+D:\Visual Studio 2015\Projects\SecondLab\SecondLab\obj\Debug\SecondLab.pdb
+C:\Users\Никита\Desktop\SecondLab\SecondLab\bin\Debug\SecondLab.exe.config
+C:\Users\Никита\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.exe
+C:\Users\Никита\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.pdb
+C:\Users\Никита\Desktop\SecondLab\SecondLab\bin\Debug\SecondLab.exe
+C:\Users\Никита\Desktop\SecondLab\SecondLab\bin\Debug\SecondLab.pdb
+C:\Users\Никита\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.csprojResolveAssemblyReference.cache
+C:\Users\Никита\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.Form1.resources
+C:\Users\Никита\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.Properties.Resources.resources
+C:\Users\Никита\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\SecondLab\SecondLab\bin\Debug\SecondLab.exe.config
+C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.exe
+C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.pdb
+C:\Users\user\Desktop\SecondLab\SecondLab\bin\Debug\SecondLab.exe
+C:\Users\user\Desktop\SecondLab\SecondLab\bin\Debug\SecondLab.pdb
+C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.Form1.resources
+C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.Properties.Resources.resources
+C:\Users\user\Desktop\SecondLab\SecondLab\obj\Debug\SecondLab.csproj.GenerateResource.Cache
