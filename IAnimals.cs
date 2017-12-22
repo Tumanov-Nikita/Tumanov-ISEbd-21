@@ -21,6 +21,6 @@ namespace SecondLab
 
 		void setMainColor(Color color);
 
-
+		string getInfo();
 	}
 }

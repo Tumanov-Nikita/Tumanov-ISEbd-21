@@ -46,5 +46,6 @@ namespace SecondLab
 			ColorBody = color;
 		}
 
+		public abstract string getInfo();
 	}
 }

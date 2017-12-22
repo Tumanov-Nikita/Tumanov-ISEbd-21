@@ -64,6 +64,21 @@ namespace SecondLab
             this.color = color;
         }
 
+		public SportRabbit(string info) : base (info)
+		{
+			string[] strs = info.Split(';');
+			if (strs.Length == 6)
+			{
+				MaxSpeed = Convert.ToInt32(strs[0]);
+				MaxCountFood = Convert.ToInt32(strs[1]);
+				Weight = Convert.ToInt32(strs[2]);
+				ColorBody = Color.FromName(strs[3]);
+				hidely = Convert.ToBoolean(strs[4]);
+				dopColor = Color.FromName(strs[5]);
+			}
+		}
+
+
 		protected override void drawLightAnimal(Graphics g)
 		{		
            
@@ -109,6 +124,13 @@ namespace SecondLab
 		public virtual void setDopColor(Color color)
 		{
 			dopColor = color;
+		}
+
+
+		public override string getInfo()
+		{
+			return MaxSpeed + ";" + MaxCountFood + ";" + Weight + ";" + ColorBody.Name +
+				";" + hidely + ";" + dopColor.Name;
 		}
 
 	}

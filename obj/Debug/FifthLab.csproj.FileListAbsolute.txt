@@ -1,3 +1,10 @@
 C:\Users\user\Desktop\FifthLab\SecondLab\bin\Debug\ThirdLab.exe.config
 C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\ThirdLab.exe
 C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\ThirdLab.pdb
+C:\Users\user\Desktop\FifthLab\SecondLab\bin\Debug\ThirdLab.exe
+C:\Users\user\Desktop\FifthLab\SecondLab\bin\Debug\ThirdLab.pdb
+C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\FifthLab.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\ThirdLab.Form2.resources
+C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\ThirdLab.FormTakingPlace.resources
+C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\ThirdLab.Properties.Resources.resources
+C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\FifthLab.csproj.GenerateResource.Cache

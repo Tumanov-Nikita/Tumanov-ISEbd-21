@@ -73,16 +73,34 @@ namespace SecondLab
 			}
 		}
 
-		public Rabbit(int maxSpeed, int maxCountGrass, double weight, Color color )
+		public Rabbit(int maxSpeed, int maxCountFood, double weight, Color color )
 		{
 			this.MaxSpeed = maxSpeed;
-			this.MaxCountFood = maxCountGrass;
-			this.ColorBody = color;
+			this.MaxCountFood = maxCountFood;
 			this.Weight = weight;
+			this.ColorBody = color;
+
 			Random rand = new Random();
 			startPosX = rand.Next(10, 200);
 			startPosY = rand.Next(10, 200);
 		}
+
+		public Rabbit(string info)
+		{
+			string[] strs = info.Split(';');
+			if (strs.Length == 4)
+			{
+				MaxSpeed = Convert.ToInt32(strs[0]);
+				MaxCountFood = Convert.ToInt32(strs[1]);
+				Weight = Convert.ToInt32(strs[2]);
+				ColorBody = Color.FromName(strs[3]);
+			}
+			this.countFood = 0;
+			Random rand = new Random();
+			startPosX = rand.Next(10, 200);
+			startPosY = rand.Next(10, 200);
+		}
+
 
 		public override void moveAnimal(Graphics g)
 		{
@@ -156,10 +174,12 @@ namespace SecondLab
 
 
             br = new SolidBrush(Color.Black);//глаза
-            g.DrawEllipse(pen, startPosX+7, startPosY+7, 3, 3);
-
-           
-          
+            g.DrawEllipse(pen, startPosX+7, startPosY+7, 3, 3);         
         }
+
+		public override string getInfo()
+	    {
+			return MaxSpeed + ";" + MaxCountFood + ";" + Weight + ";" + ColorBody.Name;
+		}	
 	}
 }
