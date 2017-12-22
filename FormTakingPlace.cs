@@ -18,17 +18,26 @@ namespace ThirdLab
         public FormTakingPlace()
         {
             InitializeComponent();
-            takingPlace = new TakingPlace();
-            Draw();
+            takingPlace = new TakingPlace(5);
+			for (int i = 1; i < 6; i++)
+			{
+				listBoxLevels.Items.Add("Уровень " + i);
+			}
+			listBoxLevels.SelectedIndex = takingPlace.getCurrentLevel;
+
+			Draw();
 
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            takingPlace.Draw(gr, pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.Image = bmp;
+			if (listBoxLevels.SelectedIndex > -1)
+			{
+				Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+				Graphics gr = Graphics.FromImage(bmp);
+				takingPlace.Draw(gr, pictureBox1.Width, pictureBox1.Height);
+				pictureBox1.Image = bmp;
+			}
         }
 
 
@@ -71,18 +80,50 @@ namespace ThirdLab
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox1.Text != "")
-            {
-                var animal = takingPlace.GetAnimalInPlace(Convert.ToInt32(maskedTextBox1.Text));
+			if (listBoxLevels.SelectedIndex > -1)
+			{//Прежде чем забрать машину, надо выбрать с какого уровня будем забирать
+				string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
+				if (maskedTextBox1.Text != "")
+				{
+					IAnimals car = takingPlace.GetAnimalInPlace(Convert.ToInt32(maskedTextBox1.Text));
+					if (car != null)
+					{//если удалось забрать, то отрисовываем
+						Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+						Graphics gr = Graphics.FromImage(bmp);
+						car.setPosition(5, 40);
+						car.drawAnimal(gr);
+						pictureBox1.Image = bmp;
+						Draw();
+					}
+					else
+					{//иначесообщаемобэтом
+						MessageBox.Show("Извинте, на этом месте нет зайки");
+					}
+				}
+			}
+		
 
-                Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                animal.setPosition(5, 40);
-                animal.drawAnimal(gr);
-                pictureBox2.Image = bmp;
-                Draw();
-            }
 
-        }
-    }
+	}
+
+	private void label2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			takingPlace.LevelDown();
+			listBoxLevels.SelectedIndex = takingPlace.getCurrentLevel;
+			Draw();
+		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+			takingPlace.LevelUp();
+			listBoxLevels.SelectedIndex = takingPlace.getCurrentLevel;
+			Draw();
+
+		}
+	}
 }
