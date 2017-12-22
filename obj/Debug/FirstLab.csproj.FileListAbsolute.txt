@@ -1,0 +1,27 @@
+c:\users\никита\documents\visual studio 2015\Projects\FirstLab\FirstLab\bin\Debug\FirstLab.exe.config
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\bin\Debug\FirstLab.exe
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\bin\Debug\FirstLab.pdb
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\obj\Debug\FirstLab.csprojResolveAssemblyReference.cache
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\obj\Debug\FirstLab.Form1.resources
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\obj\Debug\FirstLab.Properties.Resources.resources
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\obj\Debug\FirstLab.csproj.GenerateResource.Cache
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\obj\Debug\FirstLab.exe
+C:\Users\Никита\Documents\Visual Studio 2015\Projects\FirstLab\FirstLab\obj\Debug\FirstLab.pdb
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\bin\Debug\FirstLab.exe.config
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\obj\Debug\FirstLab.exe
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\obj\Debug\FirstLab.pdb
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\bin\Debug\FirstLab.exe
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\bin\Debug\FirstLab.pdb
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\obj\Debug\FirstLab.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\obj\Debug\FirstLab.Form1.resources
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\obj\Debug\FirstLab.Properties.Resources.resources
+C:\Users\user\Desktop\Tumanov-ISEbd-21-master\FirstLab\obj\Debug\FirstLab.csproj.GenerateResource.Cache
+G:\Прогр\FirstLab\bin\Debug\FirstLab.exe.config
+G:\Прогр\FirstLab\obj\Debug\FirstLab.exe
+G:\Прогр\FirstLab\obj\Debug\FirstLab.pdb
+G:\Прогр\FirstLab\bin\Debug\FirstLab.exe
+G:\Прогр\FirstLab\bin\Debug\FirstLab.pdb
+G:\Прогр\FirstLab\obj\Debug\FirstLab.csprojResolveAssemblyReference.cache
+G:\Прогр\FirstLab\obj\Debug\FirstLab.Form1.resources
+G:\Прогр\FirstLab\obj\Debug\FirstLab.Properties.Resources.resources
+G:\Прогр\FirstLab\obj\Debug\FirstLab.csproj.GenerateResource.Cache
