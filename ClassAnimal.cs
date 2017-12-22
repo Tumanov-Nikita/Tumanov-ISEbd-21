@@ -39,7 +39,12 @@ namespace SecondLab
 
 		public void eat() {
 			countFood++;
-		} 
+		}
+
+		public virtual void setMainColor(Color color)
+		{
+			ColorBody = color;
+		}
 
 	}
 }

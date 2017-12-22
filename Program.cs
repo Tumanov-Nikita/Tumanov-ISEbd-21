@@ -7,6 +7,7 @@ using ThirdLab;
 
 namespace SecondLab
 {
+	public delegate void myDel(SecondLab.IAnimals animal);
 	static class Program
 	{
 		/// <summary>

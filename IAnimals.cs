@@ -17,6 +17,10 @@ namespace SecondLab
 
 		void hide(bool hidely);
 
-		void eat(); 
+		void eat();
+
+		void setMainColor(Color color);
+
+
 	}
 }

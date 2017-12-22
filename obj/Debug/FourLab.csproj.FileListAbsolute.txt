@@ -7,3 +7,4 @@ C:\Users\user\Desktop\FourLab\SecondLab\obj\Debug\FourLab.csprojResolveAssemblyR
 C:\Users\user\Desktop\FourLab\SecondLab\obj\Debug\ThirdLab.FormTakingPlace.resources
 C:\Users\user\Desktop\FourLab\SecondLab\obj\Debug\ThirdLab.Properties.Resources.resources
 C:\Users\user\Desktop\FourLab\SecondLab\obj\Debug\FourLab.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\FourLab\SecondLab\obj\Debug\ThirdLab.Form2.resources

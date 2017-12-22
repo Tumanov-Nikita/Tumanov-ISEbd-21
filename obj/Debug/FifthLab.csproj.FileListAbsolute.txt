@@ -1,0 +1,3 @@
+C:\Users\user\Desktop\FifthLab\SecondLab\bin\Debug\ThirdLab.exe.config
+C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\ThirdLab.exe
+C:\Users\user\Desktop\FifthLab\SecondLab\obj\Debug\ThirdLab.pdb

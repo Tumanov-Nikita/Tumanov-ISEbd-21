@@ -105,5 +105,11 @@ namespace SecondLab
             g.DrawEllipse(p, startPosX + 55, startPosY + 30, 30, 24);
         }
 
-    }
+
+		public virtual void setDopColor(Color color)
+		{
+			dopColor = color;
+		}
+
+	}
 }
