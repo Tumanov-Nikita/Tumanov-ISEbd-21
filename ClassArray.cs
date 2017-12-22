@@ -26,7 +26,7 @@ namespace ThirdLab
         {
 			if (p.places.Count == p.maxCount)
 			{
-				return -1;
+				throw new ParkingOverFloException();
 			}
 
             for (int i=0; i<p.places.Count; i++)
@@ -49,8 +49,9 @@ namespace ThirdLab
                 p.places.Remove(index);
                 return animal;
             }
-            return p.defaultValue;
-        }
+			throw new ParkingIndexOfRangeException();
+
+		}
 
         private bool CheckFreePlace (int index)
         {

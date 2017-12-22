@@ -1,4 +1,5 @@
-﻿using SecondLab;
+﻿using NLog;
+using SecondLab;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +12,18 @@ using System.Windows.Forms;
 
 namespace ThirdLab
 {
-    public partial class FormTakingPlace : Form
-    {
-        TakingPlace takingPlace;
+	public partial class FormTakingPlace : Form
+	{
+		TakingPlace takingPlace;
 		Form2 form;
 
+		private Logger log;
 
-        public FormTakingPlace()
-        {
-            InitializeComponent();
-            takingPlace = new TakingPlace(5);
+		public FormTakingPlace()
+		{
+			InitializeComponent();
+			log = LogManager.GetCurrentClassLogger();
+			takingPlace = new TakingPlace(5);
 			for (int i = 1; i < 6; i++)
 			{
 				listBoxLevels.Items.Add("Уровень " + i);
@@ -29,10 +32,10 @@ namespace ThirdLab
 
 			Draw();
 
-        }
+		}
 
-        private void Draw()
-        {
+		private void Draw()
+		{
 			if (listBoxLevels.SelectedIndex > -1)
 			{
 				Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -40,56 +43,57 @@ namespace ThirdLab
 				takingPlace.Draw(gr, pictureBox1.Width, pictureBox1.Height);
 				pictureBox1.Image = bmp;
 			}
-        }
+		}
 
 
 
-        private void FormTakingPlace_Load(object sender, EventArgs e)
-        {
+		private void FormTakingPlace_Load(object sender, EventArgs e)
+		{
 
-        }
+		}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                var animal = new Rabbit(100, 4, 1000, dialog.Color);
-                int place = takingPlace.PutAnimalInPlace(animal);
-                Draw();
-                MessageBox.Show("Ваше место: " + place);
+		private void button1_Click(object sender, EventArgs e)
+		{
+			ColorDialog dialog = new ColorDialog();
+			if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			{
+				var animal = new Rabbit(100, 4, 1000, dialog.Color);
+				int place = takingPlace.PutAnimalInPlace(animal);
+				Draw();
+				MessageBox.Show("Ваше место: " + place);
 
-            }
-        }
+			}
+		}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+		private void button2_Click(object sender, EventArgs e)
+		{
 
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    var animal = new SportRabbit(100, 4, 1000, dialog.Color, false, dialogDop.Color);
-                    int place = takingPlace.PutAnimalInPlace(animal);
-                    Draw();
-                    MessageBox.Show("Ваше место: " + place);
-                }
-            }
-        }
+			ColorDialog dialog = new ColorDialog();
+			if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			{
+				ColorDialog dialogDop = new ColorDialog();
+				if (dialogDop.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+				{
+					var animal = new SportRabbit(100, 4, 1000, dialog.Color, false, dialogDop.Color);
+					int place = takingPlace.PutAnimalInPlace(animal);
+					Draw();
+					MessageBox.Show("Ваше место: " + place);
+				}
+			}
+		}
 
 
-        private void button3_Click(object sender, EventArgs e)
-        {
+		private void button3_Click(object sender, EventArgs e)
+		{
 			if (listBoxLevels.SelectedIndex > -1)
 			{//Прежде чем забрать машину, надо выбрать с какого уровня будем забирать
 				string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
 				if (maskedTextBox1.Text != "")
 				{
-					IAnimals car = takingPlace.GetAnimalInPlace(Convert.ToInt32(maskedTextBox1.Text));
-					if (car != null)
-					{//если удалось забрать, то отрисовываем
+					try
+					{
+						IAnimals car = takingPlace.GetAnimalInPlace(Convert.ToInt32(maskedTextBox1.Text));
+						//если удалось забрать, то отрисовываем
 						Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 						Graphics gr = Graphics.FromImage(bmp);
 						car.setPosition(5, 40);
@@ -97,18 +101,24 @@ namespace ThirdLab
 						pictureBox1.Image = bmp;
 						Draw();
 					}
-					else
+					catch (ParkingIndexOfRangeException ex)
 					{//иначесообщаемобэтом
-						MessageBox.Show("Извинте, на этом месте нет зайки");
+						MessageBox.Show(ex.Message, "Неверный номер",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message, "Общая ошибка",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 				}
 			}
-		
 
 
-	}
 
-	private void label2_Click(object sender, EventArgs e)
+		}
+
+		private void label2_Click(object sender, EventArgs e)
 		{
 
 		}
@@ -117,6 +127,7 @@ namespace ThirdLab
 		{
 			takingPlace.LevelDown();
 			listBoxLevels.SelectedIndex = takingPlace.getCurrentLevel;
+			log.Info("Переход на уровень ниже. Текущий уровень: " + takingPlace.getCurrentLevel);
 			Draw();
 		}
 
@@ -134,41 +145,32 @@ namespace ThirdLab
 			form.AddEvent(AddAnimal);
 			form.Show();
 
-			//form = new Form2();
-			//form.ShowDialog();
-			//var animal = form.getAnimal;
-			//if (animal != null)
-			//{
-			//	int place = takingPlace.PutAnimalInPlace(animal);
-			//	if (place > -1)
-			//	{
-			//		Draw();
-			//		MessageBox.Show("Ваше место: " + place);
-			//	}
-			//	else
-			//	{
-			//		MessageBox.Show("Животное не удалось поместить");
-			//	}
-			//}
+
 		}
 
 		private void AddAnimal(IAnimals animal)
 		{
 			if (animal != null)
 			{
-				int place = takingPlace.PutAnimalInPlace(animal);
-				if (place > -1)
+				try
 				{
+					int place = takingPlace.PutAnimalInPlace(animal);
 					Draw();
-							MessageBox.Show("Ваше место: " + place);
-					}
-						else
-						{
-							MessageBox.Show("Животное не удалось поместить");
-						}
+					MessageBox.Show("Ваше место: " + place);
+					log.Info("Добавлено животное на месте: " + place);
+				}
+				catch (ParkingOverFloException ex)
+				{
+					MessageBox.Show(ex.Message, "Ошибка переполнения",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message, "Общая ошибка",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
-
+		}
 		private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
