@@ -10,3 +10,6 @@ C:\Users\user\Desktop\SeventhLab\SecondLab\obj\Debug\ThirdLab.Properties.Resourc
 C:\Users\user\Desktop\SeventhLab\SecondLab\obj\Debug\SeventhLab.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\SeventhLab\SecondLab\obj\Debug\ThirdLab.exe
 C:\Users\user\Desktop\SeventhLab\SecondLab\obj\Debug\ThirdLab.pdb
+C:\Users\Никита\Desktop\EighthLab\SecondLab\bin\Debug\ThirdLab.exe.config
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\ThirdLab.exe
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\ThirdLab.pdb

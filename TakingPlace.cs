@@ -57,16 +57,19 @@ namespace ThirdLab
 		public void Draw(Graphics g, int width, int height)
 		{
 			DrawMarking(g);
-			for (int i = 0; i < countPlaces; i++)
-			{
-				var animal = takingPLace[currentLevel][i];
-				if (animal != null)
-				{
+            int i = 0;
+			foreach (var animal in takingPLace[currentLevel])
+			{	
 					animal.setPosition(5 + i / 5 * placeSizeWidth + 5, i % 5 * placeSizeHeight + 45);
-					animal.drawAnimal(g);
-				}
+					animal.drawAnimal(g);	
 			}
 		}
+
+
+        public void Sort()
+        {
+            takingPLace.Sort();
+        }
 
 		private void DrawMarking(Graphics g)
 		{

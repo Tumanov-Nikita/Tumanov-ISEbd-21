@@ -1,0 +1,12 @@
+C:\Users\Никита\Desktop\EighthLab\SecondLab\bin\Debug\ThirdLab.exe.config
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\ThirdLab.exe
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\ThirdLab.pdb
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\EigththLab.csprojResolveAssemblyReference.cache
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\ThirdLab.Form2.resources
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\ThirdLab.FormTakingPlace.resources
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\ThirdLab.Properties.Resources.resources
+C:\Users\Никита\Desktop\EighthLab\SecondLab\obj\Debug\EigththLab.csproj.GenerateResource.Cache
+C:\Users\Никита\Desktop\EighthLab\SecondLab\bin\Debug\ThirdLab.exe
+C:\Users\Никита\Desktop\EighthLab\SecondLab\bin\Debug\ThirdLab.pdb
+C:\Users\Никита\Desktop\EighthLab\SecondLab\bin\Debug\NLog.dll
+C:\Users\Никита\Desktop\EighthLab\SecondLab\bin\Debug\NLog.xml

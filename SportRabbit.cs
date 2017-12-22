@@ -7,11 +7,69 @@ using System.Threading.Tasks;
 
 namespace SecondLab
 {
-	class SportRabbit : Rabbit
+	class SportRabbit : Rabbit, IComparable<SportRabbit>, IEquatable<Rabbit>
     { 
         private Color dopColor;
         private Color color;
         bool hidely;      
+
+        public int  CompareTo(SportRabbit other)
+        {
+            var res = (this is Rabbit).CompareTo(other is Rabbit);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (hidely != other.hidely)
+            {
+                return hidely.CompareTo(other.hidely);
+            }
+            if (dopColor != other.dopColor)
+            {
+                dopColor.Name.CompareTo(other.dopColor.Name);
+            }
+            return 0;
+        }
+
+        public bool Equals(SportRabbit other)
+        {
+            var res = (this is Rabbit).Equals(other is Rabbit);
+            if (!res)
+            {
+                return res;
+            }
+            if (hidely != other.hidely)
+            {
+                return false;
+            }
+            if (dopColor != other.dopColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            SportRabbit rabbitObj = obj as SportRabbit;
+            if (rabbitObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(rabbitObj);
+            }
+        }
+
+        public override int GetHashCode()
+        {            
+                return base.GetHashCode();        
+        }
 
 
         public override int MaxSpeed
