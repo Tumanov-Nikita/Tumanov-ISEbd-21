@@ -30,13 +30,6 @@ namespace FirstLab
             stove = new Stove();
         }
 
-        //private void Form1_Load(object sender, EventArgs e)
-
-        //{
-
-
-
-        //}
 
         private void ButtonEggsAdd_Click(object sender, EventArgs e)
         {
@@ -48,7 +41,6 @@ namespace FirstLab
 
 
                 eggs = new Egg[Convert.ToInt32(numericUpDown1.Value)];
-                //  t.countEggs = Convert.ToInt32(numericUpDown1.Value);
                 for (int i = 0; i < Convert.ToInt32(numericUpDown1.Value); i++)
                 {
 
@@ -118,11 +110,6 @@ namespace FirstLab
             else MessageBox.Show("У вас уже есть молоко", "",
                      MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-
-            //for (int i = 0; i < milk.Length; ++i)
-            //{
-            //    pan.AddMilk(milk[i]);
-            //}
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -285,7 +272,6 @@ namespace FirstLab
             {
                 pan.AddMilk(milk[i]);
             }
-            //   buttonAddPotatos.Enabled = true;
             MessageBox.Show("Залили молоко", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -322,7 +308,6 @@ namespace FirstLab
             {
                 pan.AddEggs(eggs[i]);
             }
-            //   buttonAddPotatos.Enabled = true;
             MessageBox.Show("Яйца добавили", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
             button1.Enabled = true;
         }
