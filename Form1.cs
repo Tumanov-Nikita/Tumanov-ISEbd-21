@@ -8,111 +8,325 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SecondLab
+namespace FirstLab
 {
-	public partial class Form1 : Form
-	{
-        Color color;
-        Color dopColor;
-        int MaxSpeed;
-        int MaxCountFood;
-        int weight;
+    public partial class Form1 : Form
+    {
 
-        private IAnimals inter;
+        private Egg[] eggs;
+        private Salt salt;
+        private WaterTap waterTap;
+        private Knife knife;
+        private Pan pan;
+        private Stove stove;
+        private Milk[] milk;
+
         public Form1()
-		{
-			InitializeComponent();
-            color = Color.DarkGray;
-            dopColor = Color.AliceBlue;
-            MaxSpeed = 25;
-            MaxCountFood = 10;
-            weight = 7;
-            buttonSelectColor.BackColor = color;
-            buttonSelectDopColor.BackColor = dopColor;
-        }
-
-        private void buttonSelectColor_Click(object sender, EventArgs e)
-		{
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                color = cd.Color;
-                buttonSelectColor.BackColor = color;
-            }
-        }
-
-        private bool checkFields()
         {
-            if (!int.TryParse(textBoxMaxSpeed.Text, out MaxSpeed))
+            InitializeComponent();
+            waterTap = new WaterTap();
+            knife = new Knife();
+            pan = new Pan();
+            stove = new Stove();
+        }
+        private void ButtonEggsAdd_Click(object sender, EventArgs e)
+        {
+
+
+            if (eggs == null)
             {
-                return false;
+                Egg t = new Egg();
+
+
+                eggs = new Egg[Convert.ToInt32(numericUpDown1.Value)];
+                for (int i = 0; i < Convert.ToInt32(numericUpDown1.Value); i++)
+                {
+
+                    eggs[i] = new Egg();
+                }
+
+                MessageBox.Show("Яйца взяли", "",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            if (!int.TryParse(textBoxMaxCountFood.Text, out MaxCountFood))
+            else
             {
-                return false;
+                MessageBox.Show("У вас уже есть яйца", "",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (!int.TryParse(textBoxWeight.Text, out weight))
+
+            for (int i = 0; i < eggs.Length; ++i)
             {
-                return false;
+                if (eggs[i].Dirty > 0)
+                {
+                    MessageBox.Show("Яйца грязные!!!", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (eggs[i].Have_shell)
+                {
+                    MessageBox.Show("Яйца со скорлупой!!!", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-            return true;
+
+            MessageBox.Show("Яйца добавили, можно на плиту", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void ButtonSaltAdd_Click(object sender, EventArgs e)
+        {
+            Salt salt = new Salt();
+            salt.CountSalt = Convert.ToInt32(numericUpDown2.Value);
+            if (salt.CountSalt > 0)
+            {
+                pan.AddSalt(salt);
+                MessageBox.Show("Соль взяли", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Соли же нет, что добавлять?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void ButtonMilkAdd_Click(object sender, EventArgs e)
+        {
+
+            if (milk == null)
+            {
+                Milk t = new Milk();
+                milk = new Milk[Convert.ToInt32(numericUpDown2.Value)];
+
+
+
+                for (int i = 0; i < Convert.ToInt32(numericUpDown2.Value); i++)
+                {
+                    milk[i] = new Milk();
+                }
+
+                MessageBox.Show("Молоко взяли", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else MessageBox.Show("У вас уже есть молоко", "",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                waterTap.State = true;
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                waterTap.State = false;
+            }
         }
 
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonWash_Click(object sender, EventArgs e)
         {
-          if (checkFields())
+
+            if (numericUpDown1.Value > 0)
+
             {
-                inter = new Rabbit(MaxSpeed, MaxCountFood, weight, color);
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawAnimal(gr);
-                pictureBoxDraw.Image = bmp;
+
+                if (!waterTap.State)
+
+                {
+
+                    MessageBox.Show("Кран закрыт, как мыть?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+
+                }
+
+                eggs = new Egg[Convert.ToInt32(numericUpDown1.Value)];
+
+                pan.Init(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
+
+                for (int i = 0; i < eggs.Length; ++i)
+
+                {
+
+                    eggs[i] = new Egg();
+
+                }
+
+                for (int i = 0; i < eggs.Length; ++i)
+
+                {
+
+                    eggs[i].Dirty = 0;
+
+                }
+
+                numericUpDown1.Enabled = false;
+
+                radioButton2.Checked = true;
+
+                MessageBox.Show("Яйца помыли", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
+
+            else
+
+            {
+
+                MessageBox.Show("Яиц то нет, что мыть?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void ButtonSmash_Click(object sender, EventArgs e)
+        {
+            if (eggs == null)
+            {
+                MessageBox.Show("Яиц то нет, что чистить?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (eggs.Length == 0)
+            {
+                MessageBox.Show("Яиц то нет, что чистить?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            for (int i = 0; i < eggs.Length; ++i)
+            {
+                if (eggs[i].Dirty > 0)
+                {
+                    MessageBox.Show("Яйца грязные!!! Помыть бы их сначала", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            for (int i = 0; i < eggs.Length; ++i)
+            {
+                knife.Smash(eggs[i]);
+            }
+     
+            MessageBox.Show("Скорлупу разбили", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonCook_Click(object sender, EventArgs e)
         {
-            if (checkFields())
+            stove.Pan = pan;
+            if (!pan.ReadyToGo) 
             {
-                inter = new SportRabbit(70, 7, 5, color, checkBox2.Checked, dopColor);
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawAnimal(gr);
-                pictureBoxDraw.Image = bmp;
-            } 
+                MessageBox.Show("У нас не все готово к варке!", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!stove.State)
+            {
+                MessageBox.Show("Варить собрались энергией космоса или все же включим плиту?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          if (pan.IsReady()==false)
+            stove.Cook();
+            if (stove.Pan.IsReady())
+            {
+                ButtonGetRez.Enabled = true;
+                MessageBox.Show("Приготовилась!", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так, омлет не получился", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void ButtonGetRez_Click(object sender, EventArgs e)
+        {
+            eggs = pan.GetEggs();
+            MessageBox.Show("Мы сделали это! Приятного аппетита!", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void BowlSalt_Click(object sender, EventArgs e)
+        {
+
+            pan.AddSalt(salt);
+
+            MessageBox.Show("Добавили соль", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void BowlMilk_Click(object sender, EventArgs e)
+        {
+            if (milk == null)
+            {
+                MessageBox.Show("Молока нет, что добавлять?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (milk.Length == 0)
+            {
+                MessageBox.Show("Молока нет, что добавлять?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            for (int i = 0; i < milk.Length; ++i)
+            {
+                pan.AddMilk(milk[i]);
+            }
+            MessageBox.Show("Залили молоко", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void BowlEgg_Click(object sender, EventArgs e)
+        {
+            if (eggs == null)
+            {
+                MessageBox.Show("Яиц нет, что закидывать?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (eggs.Length == 0)
+            {
+                MessageBox.Show("Яиц нет, что закидывать?", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            for (int i = 0; i < eggs.Length; ++i)
+            {
+                if (eggs[i].Dirty > 0)
+                {
+                    MessageBox.Show("Яйца грязные!!! Помыть бы их сначала", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            for (int i = 0; i < eggs.Length; ++i)
+            {
+                if (eggs[i].Have_shell)
+                {
+                    MessageBox.Show("Не разбили скорлупу", "Ошибка логики", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            for (int i = 0; i < eggs.Length; ++i)
+            {
+                pan.AddEggs(eggs[i]);
+            }
+            MessageBox.Show("Яйца добавили", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            button1.Enabled = true;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
-        }
-
-        private void buttonSelectDopColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            stove.State = !stove.State;
+            if (checkBox1.Checked == true)
             {
-                dopColor = cd.Color;
-                buttonSelectDopColor.BackColor = dopColor;
+                MessageBox.Show("Плита включена", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ButtonCook.Enabled = true;
             }
+            else MessageBox.Show("Плита выключена", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (inter != null)
+            for (int i = 0; i < eggs.Length; ++i)
             {
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.moveAnimal(gr);
-                pictureBoxDraw.Image = bmp;
+                eggs[i].Mixed = true;               
             }
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
+            MessageBox.Show("Перемешали", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
