@@ -134,22 +134,6 @@ namespace ThirdLab
 			form.AddEvent(AddAnimal);
 			form.Show();
 
-			//form = new Form2();
-			//form.ShowDialog();
-			//var animal = form.getAnimal;
-			//if (animal != null)
-			//{
-			//	int place = takingPlace.PutAnimalInPlace(animal);
-			//	if (place > -1)
-			//	{
-			//		Draw();
-			//		MessageBox.Show("Ваше место: " + place);
-			//	}
-			//	else
-			//	{
-			//		MessageBox.Show("Животное не удалось поместить");
-			//	}
-			//}
 		}
 
 		private void AddAnimal(IAnimals animal)
