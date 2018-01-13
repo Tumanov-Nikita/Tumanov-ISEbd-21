@@ -235,11 +235,6 @@ namespace SecondLab
 
 
 
-
-
-            //g.Graphics.RotateTransform(30.0F);
-            //g.Graphics.TranslateTransform(100.0F, 0.0F);
-
             g.FillEllipse(br, startPosX + 18, startPosY + 4, 10, -25); //уши
             g.DrawEllipse(pen, startPosX + 18, startPosY + 4, 10, -25);
 
