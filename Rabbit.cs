@@ -1,4 +1,6 @@
-﻿using System;
+
+
+        ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -143,7 +145,6 @@ namespace SecondLab
 
 
 
-        
             g.FillEllipse(br, startPosX + 18, startPosY+4, 10, -25); //уши
             g.DrawEllipse(pen, startPosX + 18, startPosY+4, 10, -25);
 
@@ -154,7 +155,9 @@ namespace SecondLab
             br = new SolidBrush(Color.Black);//глаза
             g.DrawEllipse(pen, startPosX+7, startPosY+7, 3, 3);
 
+            
            
+
           
         }
 	}
